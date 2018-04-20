@@ -1,0 +1,9 @@
+# This produces a .vec file containing all the training examples:
+# (it may take a long time to do the training with all this data. 
+# You can create a simpler example by removing some of the lines 
+# in info.dat, thereby having fewer training images)
+opencv_createsamples -info info.dat -vec malariatrain.vec -bg bg.txt -w 40 -h 40
+
+# This does the training and produces an xml file containing the classifier:
+opencv_haartraining -data haarcascade_plasmodium -vec malariatrain.vec -bg bg.txt -w 40 -h 40 -nonsym
+
